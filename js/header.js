@@ -8,53 +8,61 @@ const categoryUrl = url + "categories";
 console.log(categoryUrl);
 
 async function getNavContent() {
-	try {
-		const response = await fetch(categoryUrl);
-		const navResults = await response.json();
-		console.log(navResults);
+    try {
+        const response = await fetch(categoryUrl);
+        const navResults = await response.json();
+        console.log(navResults);
 
-		for (let i = 0; i < navResults.length; i++) {
-			console.log(navResults[i]);
+        for (let i = 0; i < navResults.length; i++) {
+            console.log(navResults[i]);
 
             const categoryName = navResults[i].name;
             const id = navResults[i].id;
-                console.log(categoryName, id);
-        
-            navContainer.innerHTML += `<a href="category.html?id=${id}">${categoryName}</a>`
-            
+            console.log(categoryName, id);
+
+            navContainer.innerHTML += `<a id="navLink" href="category.html?id=${id}">${categoryName}</a>`
+
         };
-    }catch (error) {
-		console.log("Cannot display content");
-	}}
+    } catch (error) {
+        console.log("Cannot display content");
+    }
+}
 getNavContent()
-    
+
+function activeCategory() {
+    const navLink = document.querySelector("#navLink");
+    console.log(navLink);
+
+}
+activeCategory()
+
 //DROPDOWN MENU
 const nav = document.querySelector("nav");
 
-document.querySelector (".closeButton").addEventListener("click", closeMenu);
-document.querySelector ("#dropMenu").addEventListener("click", showMenu);
+document.querySelector(".closeButton").addEventListener("click", closeMenu);
+document.querySelector("#dropMenu").addEventListener("click", showMenu);
 
-function showMenu(){
-    nav.setAttribute ("class", "menuShow");
+function showMenu() {
+    nav.setAttribute("class", "menuShow");
 }
 
-function closeMenu(){
-    nav.removeAttribute ("class", "menuShow");
+function closeMenu() {
+    nav.removeAttribute("class", "menuShow");
     nav.setAttribute("class", "menuHide");
 }
 
 //DROPDOWN SEARCH
 const search = document.querySelector("#searchBox");
 
-document.querySelector (".searchButton").addEventListener("click", closeSearch);
-document.querySelector ("#searchDrop").addEventListener("click", showSearch);
+document.querySelector(".searchButton").addEventListener("click", closeSearch);
+document.querySelector("#searchDrop").addEventListener("click", showSearch);
 
-function showSearch(){
-    search.setAttribute ("class", "searchShow");
+function showSearch() {
+    search.setAttribute("class", "searchShow");
 }
 
-function closeSearch(){
-    search.removeAttribute ("class", "searchShow");
+function closeSearch() {
+    search.removeAttribute("class", "searchShow");
     search.setAttribute("class", "searchHide");
 }
 

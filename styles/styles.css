@@ -266,6 +266,9 @@ nav a:hover, nav a:focus{
     color: var(--lightGreen);
     font-weight: 600;
 }
+.active {
+    color: var(--red);
+}
 #navAbout{
     display: flex;
     flex-direction: column;
