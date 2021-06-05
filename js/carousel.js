@@ -5,11 +5,11 @@ const carousel = document.querySelector(".carousel");
 let width = carousel.offsetWidth;
 let carouselContent = document.querySelector("#carouselInner");
 
-const moveForward = function(){
-  carousel.scrollBy(width, 0);
+const moveForward = function () {
+	carousel.scrollBy(width, 0);
 }
-const moveBack = function(){
-  carousel.scrollBy(-(width), 0);
+const moveBack = function () {
+	carousel.scrollBy(-(width), 0);
 }
 
 forwardButton.addEventListener("click", moveForward);
@@ -28,14 +28,15 @@ async function getCarouselContent() {
 
 		for (let i = 1; i < carResults.length; i++) {
 			console.log(carResults[i]);
-			
+
 			let featureImg = carResults[i]._embedded["wp:featuredmedia"]["0"].source_url;
+			let featureImgAlt = carResults[i]._embedded["wp:featuredmedia"]["0"].alt_text;
 			let category = carResults[i]._embedded["wp:term"]["0"]["0"].name;
 			let title = carResults[i].title.rendered;
 			let id = carResults[i].id;
-				console.log(featureImg, title, category, id);
+			console.log(featureImg, featureImgAlt, title, category, id);
 
-			carouselContent.innerHTML += `<a class="caroselLink" href="page.html?id=${id}" alt="carosel image">
+			carouselContent.innerHTML += `<a class="caroselLink" href="page.html?id=${id}" alt="${featureImgAlt}">
                                         	<div id="item" class="caroselItem">
                                             	<img class="caroselImg" src="${featureImg}" alt=""/>
                                             <div class="carouselText">

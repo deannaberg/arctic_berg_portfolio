@@ -2,6 +2,9 @@ main {
     display: flex;
     flex-direction: column;
 }
+label{
+    display: block;
+}
 #contactWrap{
     width: 100%;
     max-width: 600px;
@@ -34,7 +37,8 @@ main {
 .minInput{
     text-transform: none;
     margin-left: .2rem;
-    font-size: .8rem;                   
+    font-size: .8rem;   
+    display: inline-block;                
 }
 .contactInput{
     width: 100%;
@@ -55,6 +59,7 @@ main {
 }
 .label{
     margin-left: 10px;
+    display:inline-block;
 }
 .submitButton{
     width: 100px;

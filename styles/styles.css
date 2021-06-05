@@ -159,7 +159,7 @@ h5{
     margin-top: 5px;
    letter-spacing: .05rem;
 }
-p{
+p{  font-family: var(--sans);
     font-weight: 200;
     font-size: 1rem;
 }
@@ -204,7 +204,7 @@ button{
 }
 /*HEADER STYLES*/
 
-#logo{
+.logo{
     grid-area: logo;
     justify-self: center;
     align-self: end;
@@ -213,11 +213,11 @@ button{
     height: auto;
 }
 
-#logo img{
+.logo img{
     width: 100px;
     height: auto;
 }
-#logo a{
+.logo a{
     color: var(--black);
     text-decoration: none;
 }
@@ -357,10 +357,11 @@ nav a:hover, nav a:focus{
     max-width:300px;
     margin-bottom:20px;
 }
-.sideBox p, .sideBox a{
+.sideBox span, .sideBox a{
     font-family: var(--sans);
     font-style: normal;
     font-weight: 500;
+    font-size: 1rem;
 }
 .aboutLinks{
     display: flex;
@@ -407,6 +408,9 @@ nav a:hover, nav a:focus{
     font-weight: 600;
     margin: 10px auto;
 }
+.sideSubscribe{
+    margin-top: 20px;
+}
 .sideSubscribe .email{
     padding: 12px 20px;
     margin: auto;
@@ -446,14 +450,14 @@ nav a:hover, nav a:focus{
     #menu-background, #top-menu-background{
         display: block;
     }
-    #logo{
+    .logo{
         padding: 30px 0;
         justify-self: center;
         align-self: start;
         width: auto;
         height: auto;
     }
-    #logo a{
+    .logo a{
         width: 150px;
         height: auto;
     }
