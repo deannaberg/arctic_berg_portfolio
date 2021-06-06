@@ -24,7 +24,7 @@ async function getPost() {
 	let featureImg = np._embedded["wp:featuredmedia"]["0"].source_url;
 	let featureImgAlt = np._embedded["wp:featuredmedia"]["0"].alt_text;
 	let title = np.title.rendered;
-	let category = np._embedded["wp:term"]["0"]["0"].name;
+	let category = np._embedded["wp:term"]["0"]["1"].name;
 	let author = np._embedded["author"]["0"].name;
 	let date = new Date(np.date).toLocaleString("en-GB", {
 		year: "numeric",
