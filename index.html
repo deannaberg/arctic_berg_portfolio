@@ -111,11 +111,12 @@
 			<div id="subscribe" class="sideBox">
 				<h4>Never Miss a Post</h4>
 				<span>Join my mailing list and get</span><span>posts directly in your inbox!</span>
-				<form class="sideSubscribe">
-					<label for="email" class="hide">Your Email: </label>
-					<input class="email" type="text" name="email" value="your email" />
-
-					<button class="submitButton" type="submit">subscribe</button>
+				<form id="emailSubscribe" class="sideSubscribe">
+					<label for="email" class="hide"><span>Your Email:</span></label>
+					<input id="email" class="email" type="text" name="email" value="your email" />
+					<span id="emailError" class="validEmail">must
+						be a valid email address</span>
+					<input class="submitButton" type="submit" name="subscribe" value="subscribe"></input>
 				</form>
 			</div>
 		</section>

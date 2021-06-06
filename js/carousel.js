@@ -15,7 +15,6 @@ const moveBack = function () {
 forwardButton.addEventListener("click", moveForward);
 backButton.addEventListener("click", moveBack);
 
-
 carUrl = url + `posts?_embed`;
 console.log(carUrl);
 
@@ -31,7 +30,7 @@ async function getCarouselContent() {
 
 			let featureImg = carResults[i]._embedded["wp:featuredmedia"]["0"].source_url;
 			let featureImgAlt = carResults[i]._embedded["wp:featuredmedia"]["0"].alt_text;
-			let category = carResults[i]._embedded["wp:term"]["0"]["0"].name;
+			let category = carResults[i]._embedded["wp:term"]["0"]["1"].name;
 			let title = carResults[i].title.rendered;
 			let id = carResults[i].id;
 			console.log(featureImg, featureImgAlt, title, category, id);

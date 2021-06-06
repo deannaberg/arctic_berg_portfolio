@@ -23,6 +23,7 @@
     
 }
 .postCard h2{
+    font-family: var(--serif);
     color: var(--black);
     font-size: 1.2rem;
 }

@@ -266,9 +266,7 @@ nav a:hover, nav a:focus{
     color: var(--lightGreen);
     font-weight: 600;
 }
-.active {
-    color: var(--red);
-}
+
 #navAbout{
     display: flex;
     flex-direction: column;
@@ -436,7 +434,16 @@ nav a:hover, nav a:focus{
 .sideSubscribe .submitButton:hover{
     background-color: var(--darkGreen);
 }
-
+.validEmail{
+    color: var(--red);
+    display: none;
+}
+.hide{
+    display:none;
+}
+.show{
+    display:block;
+}
 @media screen and (min-width: 900px){
     
     #header-wrap{
@@ -500,6 +507,10 @@ nav a:hover, nav a:focus{
     nav a:hover{
         color:var(--darkGreen);
         font-weight: 400;
+    }
+
+    nav a:active {
+        color: var(--red);
     }
     #searchDrop{
         align-self: center;

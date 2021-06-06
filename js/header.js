@@ -1,9 +1,10 @@
+
 //Call API
 let url = "https://deannaberg.no/wp-json/wp/v2/";
 
 //Populate Navigation
 
-const navContainer = document.querySelector("#navContainer");
+let navContainer = document.querySelector("#navContainer");
 const categoryUrl = url + "categories";
 console.log(categoryUrl);
 
@@ -20,7 +21,7 @@ async function getNavContent() {
             const id = navResults[i].id;
             console.log(categoryName, id);
 
-            navContainer.innerHTML += `<a id="navLink" href="category.html?id=${id}">${categoryName}</a>`
+            navContainer.innerHTML += `<a id="${id}" class="navLink" href="category.html?id=${id}">${categoryName}</a>`
 
         };
     } catch (error) {
@@ -29,12 +30,6 @@ async function getNavContent() {
 }
 getNavContent()
 
-function activeCategory() {
-    const navLink = document.querySelector("#navLink");
-    console.log(navLink);
-
-}
-activeCategory()
 
 //DROPDOWN MENU
 const nav = document.querySelector("nav");
@@ -66,4 +61,33 @@ function closeSearch() {
     search.setAttribute("class", "searchHide");
 }
 
-//NAV
+//FORM VALIDATION
+const form = document.querySelector("#emailSubscribe");
+function validateSubscribe(event) {
+    event.preventDefault();
+
+    const email = document.querySelector("#email");
+    const emailError = document.querySelector("#emailError");
+
+    if (validateEmail(email.value, 0) === true) {
+        emailError.style.display = 'none';
+    } else {
+        emailError.style.display = 'block';
+    }
+};
+form.addEventListener("submit", validateSubscribe);
+
+
+function checkLength(value, len) {
+    if (value.trim().length > len) {
+        return true;
+    } else {
+        return false;
+    }
+};
+
+function validateEmail(email) {
+    const regEx = /\S+@\S+\.\S+/;
+    const patternMatch = regEx.test(email);
+    return patternMatch;
+};

@@ -1,19 +1,38 @@
+
 let categoryPageTitle = document.querySelector("#categoryTitle");
 let cardWrap = document.querySelector(".cardWrap");
 let loadButton = document.querySelector("#loadMore");
+const pageTitle = document.querySelector("#categoryTitle");
 
 const queryString = document.location.search;
-
 const params = new URLSearchParams(queryString);
 
-
-const id = params.get('id');
-
-
+let id = params.get('id');
+console.log(id);
 
 const categoryAPI = "https://deannaberg.no/wp-json/wp/v2/posts?categories=" + id + "&_embed";
 console.log(categoryAPI);
 
+async function styleNav() {
+    const response = await fetch(categoryAPI);
+    let catResults = await response.json();
+    for (let i = 0; i < catResults.length; i++) {
+        console.log(catResults[i]);
+
+        let link = document.querySelectorAll(".navLink");
+        console.log(link);
+
+        for (let i = 0; i < link.length; i++) {
+            //const pageTitleContent = link[i].outerText;
+
+            if (link[i].id === id) {
+                link[i].style.color = "var(--red)";
+                //pageTitle.innerHTML += `${pageTitleContent}`;
+            }
+        };
+    };
+}
+styleNav()
 
 async function getCategoryPosts() {
     const response = await fetch(categoryAPI);
@@ -22,7 +41,7 @@ async function getCategoryPosts() {
     for (let i = 0; i < catResults.length; i++) {
         console.log(catResults[i]);
 
-        //const categoryTitle = 
+
         const cardDate = new Date(catResults[i].date).toLocaleString("en-GB", {
             year: "numeric",
             month: "long",
@@ -77,5 +96,5 @@ async function getMoreCatPosts() {
                                 </figure>`;
     }
     loadButton.style.display = "none";
-}
+};
 

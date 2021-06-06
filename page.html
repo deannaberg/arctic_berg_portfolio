@@ -95,12 +95,15 @@
 				<div class="aboutLinks"><a href="about.html">about</a><img class="flower" src="svg/flower.svg" /><a
 						href="contact.html">contact</a></div>
 			</div>
-			<div id="subscribe" class="sideBox backgroundShape">
+			<div id="subscribe" class="sideBox">
 				<h4>Never Miss a Post</h4>
-				<p>Join my mailing list and get</br>posts directly in your inbox!</p>
-				<form class="sideSubscribe">
-					<input class="email" type="text" name="email" value="your email" />
-					<input class="submitButton" type="submit" name="subscribe" value="subscribe" />
+				<span>Join my mailing list and get</span><span>posts directly in your inbox!</span>
+				<form id="emailSubscribe" class="sideSubscribe">
+					<label for="email" class="hide"><span>Your Email:</span></label>
+					<input id="email" class="email" type="text" name="email" value="your email" />
+					<span id="emailError" class="validEmail">must
+						be a valid email address</span>
+					<input class="submitButton" type="submit" name="subscribe" value="subscribe"></input>
 				</form>
 			</div>
 		</section>

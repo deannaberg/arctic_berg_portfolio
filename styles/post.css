@@ -70,12 +70,6 @@
 
 }
 
-.hide{
-    display:none;
-}
-.show{
-    display:block;
-}
 #modalButton{
     position: absolute;
     top:0;
